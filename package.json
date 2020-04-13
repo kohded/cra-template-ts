@@ -1,0 +1,76 @@
+{
+  "name": "cra-template-ts",
+  "version": "0.1.1",
+  "author": "Arnold Koh",
+  "bugs": {
+    "url": "https://github.com/kohded/cra-template-ts/issues"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "@testing-library/user-event": "^10.0.1",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^12.12.35",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-router-dom": "^5.1.4",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "cross-env": "^7.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-compat": "^3.5.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.3",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.1",
+    "rimraf": "^3.0.2",
+    "source-map-explorer": "^2.4.2",
+    "stylelint": "^13.3.2",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.16.1",
+    "typescript": "^3.8.3"
+  },
+  "description": "The unofficial base TypeScript template for Create React App.",
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "homepage": "https://github.com/kohded/cra-template-ts#readme",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript"
+  ],
+  "license": "MIT",
+  "main": "template.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kohded/cra-template-ts.git"
+  },
+  "scripts": {
+    "format": "prettier --config ./template/.prettierrc.js --write **/*.{css,html,js,jsx,json,md,scss,ts,tsx,yml} --ignore-path=template/.prettierignore",
+    "lint": "npm run format && npm run lint:eslint && npm run lint:stylelint",
+    "lint:eslint": "eslint -c ./template/.eslintrc.js **/*.{js,jsx,ts,tsx}",
+    "lint:stylelint": "stylelint --config ./template/.stylelintrc.js **/*.{css,scss}"
+  }
+}
