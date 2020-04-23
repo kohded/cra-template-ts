@@ -25,11 +25,12 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  ignorePatterns: ['**/serviceWorker.ts', 'build', 'coverage', 'node_modules'],
+  ignorePatterns: ['build', 'coverage', 'node_modules', 'serviceWorker.ts'],
   overrides: [
     {
       files: ['**/*.ts?(x)'],
       rules: {
+        'react/prop-types': 'off',
         'spaced-comment': [
           'error',
           'always',
@@ -42,7 +43,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: '**/tsconfig.json',
+    project: './tsconfig.json',
   },
   plugins: ['@typescript-eslint'],
   settings: {
