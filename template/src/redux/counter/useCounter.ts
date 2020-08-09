@@ -1,20 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementCount, incrementCount } from 'redux/counter/counter';
+import { decrement, increment } from './counter';
 
-export default (): {
+export interface UseCounter {
   counter: number;
   handleDecrementClick: () => void;
   handleIncrementClick: () => void;
-} => {
+}
+
+export const useCounter = (): UseCounter => {
   const counter = useSelector((state: { counter: number }) => state.counter);
   const dispatch = useDispatch();
 
   const handleDecrementClick = (): void => {
-    dispatch(decrementCount());
+    dispatch(decrement());
   };
 
   const handleIncrementClick = (): void => {
-    dispatch(incrementCount());
+    dispatch(increment());
   };
 
   return { counter, handleDecrementClick, handleIncrementClick };

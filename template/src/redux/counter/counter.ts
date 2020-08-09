@@ -1,27 +1,31 @@
 import { Dispatch } from 'redux';
 
-interface State {
+interface Counter {
   counter: number;
 }
 
-export const DECREMENT = 'DECREMENT ';
+// Action Types
+export const DECREMENT = 'DECREMENT';
 export const INCREMENT = 'INCREMENT';
 
-export const decrementCount = () => (dispatch: Dispatch, getState: () => State): void => {
+// Action Creators, Redux Thunk
+export const decrement = () => (dispatch: Dispatch, getState: () => Counter): void => {
   dispatch({
+    // Action
     counter: getState().counter - 1,
     type: DECREMENT,
   });
 };
 
-export const incrementCount = () => (dispatch: Dispatch, getState: () => State): void => {
+export const increment = () => (dispatch: Dispatch, getState: () => Counter): void => {
   dispatch({
     counter: getState().counter + 1,
     type: INCREMENT,
   });
 };
 
-export default (state = 0, action: { counter: number; type: string }): number => {
+// Reducer
+export const counter = (state = 0, action: { counter: number; type: string }): number => {
   switch (action.type) {
     case DECREMENT:
     case INCREMENT:

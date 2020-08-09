@@ -1,12 +1,16 @@
-import Routes from 'components/Routes/Routes';
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from 'redux/store';
+import { BrowserRouter } from 'react-router-dom';
+import { store } from '../../redux/store';
+import { Layout } from '../Layout/Layout';
+import { Routes } from '../Routes/Routes';
 
-const App: React.FC = () => (
+export const App: React.FC = () => (
   <Provider store={store}>
-    <Routes />
+    <BrowserRouter>
+      <Layout>
+        <Routes />
+      </Layout>
+    </BrowserRouter>
   </Provider>
 );
-
-export default App;

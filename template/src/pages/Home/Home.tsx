@@ -1,11 +1,13 @@
 import React from 'react';
-import useCounter from 'redux/counter/hooks';
+import { useCounter } from '../../redux/counter/useCounter';
+import { APP_NAME } from '../../utils/constants';
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   const { counter, handleDecrementClick, handleIncrementClick } = useCounter();
 
   return (
     <>
+      <p>{APP_NAME}</p>
       <p>Counter: {counter}</p>
       <button onClick={handleDecrementClick} type="button">
         -
@@ -16,5 +18,3 @@ const Home: React.FC = () => {
     </>
   );
 };
-
-export default Home;
