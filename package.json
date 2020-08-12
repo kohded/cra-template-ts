@@ -1,6 +1,6 @@
 {
   "name": "cra-template-ts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Arnold Koh",
   "bugs": {
     "url": "https://github.com/kohded/cra-template-ts/issues"
@@ -23,13 +23,10 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
-    "eslint": "^7.6.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-config-react-app": "^6.0.0-next.77",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-compat": "^3.8.0",
-    "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
