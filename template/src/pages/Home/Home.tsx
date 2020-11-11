@@ -1,9 +1,9 @@
-import React from 'react';
-import { useCounter } from '../../redux/counter/useCounter';
-import { APP_NAME } from '../../utils/constants';
+import React, { FC } from 'react';
+import { APP_NAME } from '../../common/constants';
+import { useCounter, UseCounter } from '../../redux/counter/useCounter';
 
-export const Home: React.FC = () => {
-  const { counter, handleDecrementClick, handleIncrementClick } = useCounter();
+const Home: FC = () => {
+  const { counter, handleDecrementClick, handleIncrementClick }: UseCounter = useCounter();
 
   return (
     <>
@@ -18,3 +18,5 @@ export const Home: React.FC = () => {
     </>
   );
 };
+
+export default Home;

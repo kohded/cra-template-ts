@@ -11,6 +11,7 @@ module.exports = {
   },
   extends: [
     'react-app',
+    'react-app/jest',
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
@@ -24,7 +25,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  ignorePatterns: ['build', 'coverage', 'serviceWorker.ts'],
+  ignorePatterns: ['build', 'coverage', '.eslintrc.js', 'serviceWorkerRegistration.ts'],
   overrides: [
     {
       files: ['**/*.ts?(x)'],
@@ -47,6 +48,12 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     'import/prefer-default-export': 'off',
+    // Immer - https://github.com/immerjs/immer/issues/189#issuecomment-703083451
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
+    ],
+    'no-underscore-dangle': ['error', { allow: ['__WB_MANIFEST'] }],
   },
   settings: {
     'import/resolver': {

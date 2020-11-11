@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { PageNotFound } from '../../pages/PageNotFound/PageNotFound';
+import Loading from '../../pages/Loading/Loading';
 
-export const Routes: React.FC = () => (
-  <Switch>
-    <Route component={Home} exact path="/" />
-    <Route component={PageNotFound} />
-  </Switch>
+const Home = lazy(() => import('../../pages/Home/Home'));
+const PageNotFound = lazy(() => import('../../pages/PageNotFound/PageNotFound'));
+
+export const Routes: FC = () => (
+  <Suspense fallback={<Loading />}>
+    <Switch>
+      <Route component={Home} exact path="/" />
+      <Route component={PageNotFound} />
+    </Switch>
+  </Suspense>
 );

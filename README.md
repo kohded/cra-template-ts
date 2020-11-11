@@ -1,20 +1,20 @@
 # cra-template-ts
 
-This is the unofficial TypeScript template for [Create React App](https://github.com/facebook/create-react-app).
+An progressive web app template for [Create React App](https://github.com/facebook/create-react-app), using TypeScript.
 
-To use this template, add `--template ts` when creating a new app.
+To use this template add `--template ts` when creating a new app:
 
-For example:
+```shell script
+# npm
+npx create-react-app my-app --template ts --use-npm
 
-```sh
-npx create-react-app my-app --template ts
+# npm local
+npx create-react-app my-app --template file:./cra-template-ts --use-npm
 
-# or
-
+# yarn
 yarn create react-app my-app --template ts
 ```
 
-For more information, please refer to:
+## Learn more
 
-- [Getting Started](https://create-react-app.dev/docs/getting-started) – How to create a new app.
-- [User Guide](https://create-react-app.dev) – How to develop apps bootstrapped with Create React App.
+The [Create React App documentation](https://cra.link/PWA) has more details on using this template to create your PWA.

@@ -1,5 +1,8 @@
+@import "../../assets/scss/_theme.scss";
+
 .container {
-  background-color: #ededed;
-  max-width: 960px;
+  background-color: $color-primary;
+  max-width: $max-width;
+  padding: $padding;
   width: 100%;
 }

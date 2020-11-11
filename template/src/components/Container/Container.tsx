@@ -1,10 +1,13 @@
-import React, { PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 import classes from './Container.module.scss';
 
-interface Props {
-  children: React.ReactNode;
+interface ContainerProps {
+  children: ReactNode;
 }
 
-export const Container: React.FC<Props> = ({ children }: PropsWithChildren<Props>) => (
-  <div className={classes.container}>{children}</div>
+export const Container: FC<ContainerProps> = ({ children }: PropsWithChildren<ContainerProps>) => (
+  <div className={classes.container}>
+    <ErrorBoundary>{children}</ErrorBoundary>
+  </div>
 );

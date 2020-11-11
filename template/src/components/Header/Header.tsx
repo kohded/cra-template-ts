@@ -1,8 +1,11 @@
-import React from 'react';
-import { Container } from '../Container/Container';
+import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-export const Header: React.FC = () => (
-  <Container>
-    <header>HEADER</header>
-  </Container>
+export const Header: FC = () => (
+  <header>
+    <Link to="/">Logo</Link>
+    <nav>
+      <Link to="/">Nav</Link>
+    </nav>
+  </header>
 );
