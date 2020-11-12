@@ -1,8 +1,14 @@
 @import "../../assets/scss/_theme.scss";
 
 .container {
-  background-color: $color-primary;
+  @extend .container-full-width;
+
   max-width: $max-width;
+}
+
+.container-full-width {
+  background-color: $color-primary;
+  margin: 0 auto;
   padding: $padding;
   width: 100%;
 }

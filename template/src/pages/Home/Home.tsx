@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { APP_NAME } from '../../common/constants';
-import { useCounter, UseCounter } from '../../redux/counter/useCounter';
+import { useCounter, UseCounter } from '../../redux/counter/use-counter';
 
 const Home: FC = () => {
   const { counter, handleDecrementClick, handleIncrementClick }: UseCounter = useCounter();
