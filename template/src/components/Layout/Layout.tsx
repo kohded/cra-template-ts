@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { Container } from '../Container/Container';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 
@@ -9,14 +10,16 @@ interface LayoutProps {
 
 export const Layout: FC<LayoutProps> = ({ children }: PropsWithChildren<LayoutProps>) => (
   <>
-    <Container isFullWidth role="banner">
+    <ErrorBoundary>
       <Header />
-    </Container>
-    <Container role="main">
-      <main>{children}</main>
-    </Container>
-    <Container isFullWidth role="contentinfo">
+    </ErrorBoundary>
+    <ErrorBoundary>
+      <main role="main">
+        <Container>{children}</Container>
+      </main>
+    </ErrorBoundary>
+    <ErrorBoundary>
       <Footer />
-    </Container>
+    </ErrorBoundary>
   </>
 );

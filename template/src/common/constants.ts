@@ -1,3 +1,3 @@
-const APP_NAME = 'REACT STARTER';
+const APP_NAME = 'React Starter';
 
 export { APP_NAME };
