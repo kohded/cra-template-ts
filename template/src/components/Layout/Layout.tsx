@@ -1,25 +1,31 @@
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
-import { Container } from '../Container/Container';
+import { lazyComponent } from '../../common/utils';
 import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
-import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
+import { LayoutContainer } from '../LayoutContainer/LayoutContainer';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+const Footer = lazyComponent('Footer', import('../../components/Footer/Footer'));
+const Header = lazyComponent('Header', import('../../components/Header/Header'));
+
 export const Layout: FC<LayoutProps> = ({ children }: PropsWithChildren<LayoutProps>) => (
   <>
     <ErrorBoundary>
-      <Header />
+      <LayoutContainer role="banner" Tag="header">
+        <Header />
+      </LayoutContainer>
     </ErrorBoundary>
     <ErrorBoundary>
-      <main role="main">
-        <Container>{children}</Container>
-      </main>
+      <LayoutContainer role="main" Tag="main">
+        {children}
+      </LayoutContainer>
     </ErrorBoundary>
     <ErrorBoundary>
-      <Footer />
+      <LayoutContainer role="contentinfo" Tag="footer">
+        <Footer />
+      </LayoutContainer>
     </ErrorBoundary>
   </>
 );

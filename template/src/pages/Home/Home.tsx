@@ -1,20 +1,19 @@
 import React, { FC } from 'react';
-import { useCounter, UseCounter } from '../../redux/counter/use-counter';
+import { Page } from '../../components/Page/Page';
+import { useCounter, UseCounter } from '../../store/counter';
 
-const Home: FC = () => {
+export const Home: FC = () => {
   const { counter, handleDecrementClick, handleIncrementClick }: UseCounter = useCounter();
 
   return (
-    <>
-      <p>Counter: {counter}</p>
+    <Page metaDescriptionContent="Home" title="Home">
+      <p>Positive Counter: {counter}</p>
       <button onClick={handleDecrementClick} type="button">
         -
       </button>
       <button onClick={handleIncrementClick} type="button">
         +
       </button>
-    </>
+    </Page>
   );
 };
-
-export default Home;

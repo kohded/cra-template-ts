@@ -12,6 +12,6 @@ test('counter text is in document', async () => {
       <App />
     </Provider>
   );
-  const counter = await waitFor(() => screen.getByText(/Counter: 0/));
+  const counter = await waitFor(() => screen.getByText(/Positive Counter: 0/));
   expect(counter).toBeInTheDocument();
 });

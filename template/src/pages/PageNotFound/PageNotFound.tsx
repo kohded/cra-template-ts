@@ -1,5 +1,12 @@
 import React, { FC } from 'react';
+import { Page } from '../../components/Page/Page';
 
-const PageNotFound: FC = () => <p>404 - Page Not Found</p>;
+export const PageNotFound: FC = () => {
+  const pageNotFoundText = '404 - Page Not Found';
 
-export default PageNotFound;
+  return (
+    <Page metaDescriptionContent={pageNotFoundText} title={pageNotFoundText}>
+      <p>{pageNotFoundText}</p>
+    </Page>
+  );
+};

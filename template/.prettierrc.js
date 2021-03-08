@@ -1,13 +1,11 @@
 module.exports = {
   overrides: [
     {
-      files: '*.scss',
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       options: {
-        singleQuote: false,
+        singleQuote: true,
       },
     },
   ],
   printWidth: 100,
-  singleQuote: true,
-  trailingComma: 'es5',
 };

@@ -26,11 +26,13 @@
 @mixin on-hover($self: false) {
   @if $self {
     &,
-    &:hover {
+    &:hover,
+    &:focus {
       @content;
     }
   } @else {
-    &:hover {
+    &:hover,
+    &:focus {
       @content;
     }
   }

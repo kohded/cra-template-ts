@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# development
+/config/ssl
+
 # testing
 /coverage
 
@@ -12,6 +15,8 @@
 /build
 
 # misc
+/.idea
+/.vscode
 .DS_Store
 .env.local
 .env.development.local

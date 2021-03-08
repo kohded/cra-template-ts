@@ -1,8 +1,9 @@
-@import "../../assets/scss/_theme.scss";
+@use "../../assets/scss/theme";
 
-.container {
-  margin: 0 auto;
-  max-width: $max-width;
-  padding: $padding;
-  width: 100%;
+.padding {
+  padding: theme.$padding;
+}
+
+.root {
+  max-width: theme.$max-width;
 }

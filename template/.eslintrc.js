@@ -1,13 +1,13 @@
 module.exports = {
   env: {
+    'shared-node-browser': true,
     browser: true,
-    es6: true,
-    es2017: true,
+    commonjs: true,
     es2020: true,
     jest: true,
     node: true,
     serviceworker: true,
-    'shared-node-browser': true,
+    worker: true,
   },
   extends: [
     'react-app',
@@ -15,51 +15,26 @@ module.exports = {
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
+    'plugin:promise/recommended',
     'plugin:compat/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
+    'plugin:eslint-comments/recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
-  ignorePatterns: ['build', 'coverage', '.eslintrc.js', 'serviceWorkerRegistration.ts'],
-  overrides: [
-    {
-      files: ['**/*.ts?(x)'],
-      rules: {
-        'react/prop-types': 'off',
-        'spaced-comment': [
-          'error',
-          'always',
-          {
-            markers: ['/'],
-          },
-        ],
-      },
-    },
-  ],
+  ignorePatterns: ['build', 'coverage', 'serviceWorkerRegistration.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json'],
   },
   plugins: ['@typescript-eslint'],
   rules: {
+    'import/order': ['error', { alphabetize: { order: 'asc' } }],
     'import/prefer-default-export': 'off',
-    // Immer - https://github.com/immerjs/immer/issues/189#issuecomment-703083451
+    'no-nested-ternary': 'off',
     'no-param-reassign': [
       'error',
+      // Immer - https://github.com/immerjs/immer/issues/189#issuecomment-703083451
       { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
     ],
     'no-underscore-dangle': ['error', { allow: ['__WB_MANIFEST'] }],
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        moduleDirectory: ['node_modules', 'src'],
-      },
-    },
   },
 };

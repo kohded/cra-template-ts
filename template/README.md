@@ -2,37 +2,43 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Waiting for updates React 17 not supported
+## Setup Application
 
-- airbnb-prop-types: [[New] add explicit react 17 support #74](https://github.com/airbnb/prop-types/pull/74)
-- enzyme-adapter-react-16, enzyme-adapter-utils: [feat: add an adapter for React 17 #2430](https://github.com/enzymejs/enzyme/pull/2430)
-- react-test-renderer: No link found
-- use-immer: [Missing support for React 17.0.1 #68](https://github.com/immerjs/use-immer/issues/68)
+### HTTPS
 
-## Setup HTTPS
+1. Install [mkcert](https://github.com/FiloSottile/mkcert#installation).
 
-- Install [mkcert](https://github.com/FiloSottile/mkcert#installation).
-- Install local CA to trust store. To change local CA you must uninstall first before reinstalling. This does not need to be installed for every application.
+2. Install local CA to available trust stores with the following command.
 
 ```shell script
 mkcert -install
-mkcert -uninstall
 ```
 
-- Run ssl script in [package.json](package.json) to install application certificates.
+3. Optional: Add hosts to OS hosts file and setup:ssl script for additional https domains, defaults only to localhost.
+
+   - Windows: C:\Windows\System32\drivers\etc\hosts
+   - Mac: /etc/hosts
 
 ```shell script
-npm run ssl
+# hosts
+127.0.0.1 localhost myhost
+
+# package.json
+"setup:ssl": "... localhost myhost",
 ```
 
-Fix Windows Firefox unsupported root store. Using only the first link should work.
+4. Run setup script in [package.json](package.json) to set up husky and ssl certificates. Must generate the ssl certificates for https support.
 
-- [Windows 10: Firefox](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8#user-content-windows-10-firefox)
-- [Support for CAroot for Windows Firefox](https://github.com/FiloSottile/mkcert/issues/259)
+```shell script
+npm run setup
+```
 
-## Generate icons and splash screens
+5. When viewing the application in the browser and shows a warning about untrusted certificates, will need to [Trust the local CA](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8#trust-the-local-ca).
+   - Warnings: Chrome: "Your connection is not private", Firefox: "Warning: Potential Security Risk Ahead"
 
-- Replace ./src/assets/images/icons/logo.svg with your own logo.svg.
+### Generate icons and splash screens
+
+- Replace ./src/assets/images/icons/logo.svg with application logo.svg.
 - Run icons script in [package.json](package.json) to generate icons and splash screens. This script uses [pwa-asset-generator](https://github.com/onderceylan/pwa-asset-generator).
 
 ```shell script
@@ -43,18 +49,9 @@ npm run icons
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run analyze`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run source-map-explorer on build folder.
 
 ### `npm run build`
 
@@ -75,6 +72,71 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run format`
+
+Runs prettier on project files.
+
+### `npm run icons`
+
+Runs pwa-asset-generator to generate icons and splash screens for the application.
+
+### `npm run lint`
+
+Runs all other lint scripts together.
+
+### `npm run lint:eslint`
+
+Runs eslint on project files.
+
+### `npm run lint:stylelint`
+
+Runs stylelint on project files.
+
+### `npm run prebuild`
+
+Runs these commands before build script.
+
+### `npm run serve`
+
+Runs serve as https in the build folder.
+
+### `npm run setup`
+
+Runs all other setup scripts together.
+
+### `npm run setup:husky`
+
+Runs husky to install husky hooks and adds pre-commit hook.
+
+### `npm run setup:ssl`
+
+Runs mkcert to generate ssl certificates for https support.
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm test:ci`
+
+Launches the test runner for CI environments.
+
+### `npm test:coverage`
+
+Launches the test runner for test coverage.
+
+### `npm test:debug`
+
+Launches the test runner for debugging tests.
 
 ## Learn More
 
