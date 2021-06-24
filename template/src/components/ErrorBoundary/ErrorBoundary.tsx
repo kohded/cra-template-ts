@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { Container } from '../Container/Container';
+import { LayoutContainer } from '../LayoutContainer/LayoutContainer';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -26,7 +26,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     const { hasError } = this.state;
 
     if (hasError) {
-      return <Container>There was an error.</Container>;
+      return (
+        <LayoutContainer role="alert">
+          <p>There was an error.</p>
+        </LayoutContainer>
+      );
     }
 
     return children;

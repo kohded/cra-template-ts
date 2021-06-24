@@ -1,3 +1,3 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const Loading: FC = () => <p>Loading...</p>;
+export const Loading = (): JSX.Element => <p>Loading...</p>;

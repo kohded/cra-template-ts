@@ -1,10 +1,5 @@
 import { FC, lazy, LazyExoticComponent } from 'react';
 
-interface ActionEvent {
-  payload: unknown;
-  type: string;
-}
-
 const actionEvent = (type: string, payload?: unknown): ActionEvent => ({
   payload,
   type,

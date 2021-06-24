@@ -6,7 +6,7 @@ import { combineEpics, createEpicMiddleware, Epic, EpicMiddleware } from 'redux-
 import { counterEpic, counterReducer } from './counter';
 
 const rootReducer = combineReducers({ counter: counterReducer });
-const rootEpic: unknown = combineEpics(counterEpic);
+const rootEpic = combineEpics(counterEpic);
 const epicMiddleware: EpicMiddleware<Action> = createEpicMiddleware();
 const middleware = [epicMiddleware];
 const composeEnhancers = composeWithDevTools({

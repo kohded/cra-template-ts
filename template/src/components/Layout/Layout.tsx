@@ -1,31 +1,25 @@
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { PropsWithChildren, Suspense } from 'react';
 import { lazyComponent } from '../../common/utils';
 import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
-import { LayoutContainer } from '../LayoutContainer/LayoutContainer';
+import { Loading } from '../Loading/Loading';
 
-interface LayoutProps {
-  children: ReactNode;
-}
+const Footer = lazyComponent('Footer', import('../Footer/Footer'));
+const Header = lazyComponent('Header', import('../Header/Header'));
 
-const Footer = lazyComponent('Footer', import('../../components/Footer/Footer'));
-const Header = lazyComponent('Header', import('../../components/Header/Header'));
+const Container = ({ children }: PropsWithChildren<Record<string, unknown>>): JSX.Element => (
+  <ErrorBoundary>
+    <Suspense fallback={<Loading />}>{children} </Suspense>
+  </ErrorBoundary>
+);
 
-export const Layout: FC<LayoutProps> = ({ children }: PropsWithChildren<LayoutProps>) => (
+export const Layout = ({ children }: PropsWithChildren<Record<string, unknown>>): JSX.Element => (
   <>
-    <ErrorBoundary>
-      <LayoutContainer role="banner" Tag="header">
-        <Header />
-      </LayoutContainer>
-    </ErrorBoundary>
-    <ErrorBoundary>
-      <LayoutContainer role="main" Tag="main">
-        {children}
-      </LayoutContainer>
-    </ErrorBoundary>
-    <ErrorBoundary>
-      <LayoutContainer role="contentinfo" Tag="footer">
-        <Footer />
-      </LayoutContainer>
-    </ErrorBoundary>
+    <Container>
+      <Header />
+    </Container>
+    <Container>{children}</Container>
+    <Container>
+      <Footer />
+    </Container>
   </>
 );

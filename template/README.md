@@ -2,9 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Setup Application
-
-### HTTPS
+## Setup HTTPS
 
 1. Install [mkcert](https://github.com/FiloSottile/mkcert#installation).
 
@@ -14,10 +12,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 mkcert -install
 ```
 
-3. Optional: Add hosts to OS hosts file and setup:ssl script for additional https domains, defaults only to localhost.
+3. Uncomment HTTPS=true in [.env](.env) to enable HTTPS.
 
-   - Windows: C:\Windows\System32\drivers\etc\hosts
-   - Mac: /etc/hosts
+```shell script
+# .env
+HTTPS=true
+```
+
+4.  Optional: Add hosts to OS hosts file and setup:ssl script for additional https domains, defaults only to localhost.
+
+- Windows: C:\Windows\System32\drivers\etc\hosts
+- Mac: /etc/hosts
 
 ```shell script
 # hosts
@@ -27,16 +32,16 @@ mkcert -install
 "setup:ssl": "... localhost myhost",
 ```
 
-4. Run setup script in [package.json](package.json) to set up husky and ssl certificates. Must generate the ssl certificates for https support.
+5. Run setup script in [package.json](package.json) to set up husky and ssl certificates. Must generate the ssl certificates for https support.
 
 ```shell script
 npm run setup
 ```
 
-5. When viewing the application in the browser and shows a warning about untrusted certificates, will need to [Trust the local CA](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8#trust-the-local-ca).
+6. When viewing the application in the browser and shows a warning about untrusted certificates, will need to [Trust the local CA](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8#trust-the-local-ca).
    - Warnings: Chrome: "Your connection is not private", Firefox: "Warning: Potential Security Risk Ahead"
 
-### Generate icons and splash screens
+## Generate icons and splash screens
 
 - Replace ./src/assets/images/icons/logo.svg with application logo.svg.
 - Run icons script in [package.json](package.json) to generate icons and splash screens. This script uses [pwa-asset-generator](https://github.com/onderceylan/pwa-asset-generator).

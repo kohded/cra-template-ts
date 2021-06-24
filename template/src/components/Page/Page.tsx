@@ -1,26 +1,32 @@
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { APP_NAME } from '../../common/constants';
+import { LayoutContainer, LayoutContainerProps } from '../LayoutContainer/LayoutContainer';
 
-interface PageProps {
-  children: ReactNode;
-  htmlTags?: ReactNode;
-  metaDescriptionContent: string;
+interface PageProps extends LayoutContainerProps {
+  description: string;
+  elements?: ReactNode;
+  keywords?: string;
   title: string;
 }
 
-export const Page: FC<PageProps> = ({
+export const Page = ({
   children,
-  htmlTags,
-  metaDescriptionContent,
+  description,
+  elements,
+  isFluid,
+  keywords,
   title,
-}: PropsWithChildren<PageProps>) => (
+}: PropsWithChildren<PageProps>): JSX.Element => (
   <HelmetProvider>
     <Helmet defaultTitle={APP_NAME} titleTemplate={`${APP_NAME} | %s`}>
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <title>{title}</title>
-      <meta name="description" content={metaDescriptionContent} />
-      {htmlTags}
+      {elements}
     </Helmet>
-    {children}
+    <LayoutContainer isFluid={isFluid} role="main" Tag="main">
+      {children}
+    </LayoutContainer>
   </HelmetProvider>
 );

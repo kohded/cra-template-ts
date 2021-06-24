@@ -1,13 +1,14 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Page } from '../../components/Page/Page';
-import { useCounter, UseCounter } from '../../store/counter';
+import { useCounter } from '../../store/counter';
 
-export const Home: FC = () => {
-  const { counter, handleDecrementClick, handleIncrementClick }: UseCounter = useCounter();
+export const Home = (): JSX.Element => {
+  const { counter, handleDecrementClick, handleIncrementClick } = useCounter();
+  const homeText = 'Home';
 
   return (
-    <Page metaDescriptionContent="Home" title="Home">
-      <p>Positive Counter: {counter}</p>
+    <Page description={homeText} keywords={homeText} title={homeText}>
+      <p>Positive Counter: {counter.count}</p>
       <button onClick={handleDecrementClick} type="button">
         -
       </button>

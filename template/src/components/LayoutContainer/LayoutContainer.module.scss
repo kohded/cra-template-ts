@@ -1,3 +1,9 @@
+@use "../../assets/scss/theme";
+
+.fluid {
+  max-width: theme.$max-width;
+}
+
 .root {
   display: flex;
   justify-content: center;

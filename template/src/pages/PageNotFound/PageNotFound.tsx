@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Page } from '../../components/Page/Page';
 
-export const PageNotFound: FC = () => {
+export const PageNotFound = (): JSX.Element => {
   const pageNotFoundText = '404 - Page Not Found';
 
   return (
-    <Page metaDescriptionContent={pageNotFoundText} title={pageNotFoundText}>
+    <Page description={pageNotFoundText} keywords={pageNotFoundText} title={pageNotFoundText}>
       <p>{pageNotFoundText}</p>
     </Page>
   );
