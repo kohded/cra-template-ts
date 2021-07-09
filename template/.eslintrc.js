@@ -12,8 +12,8 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
-    // Installs and sets up: @typescript-eslint/eslint-plugin, import, jsx-a11y, react, react-hooks
     // https://github.com/iamturns/eslint-config-airbnb-typescript#user-content-i-wish-this-config-would-support-
+    // Sets up: @typescript-eslint/eslint-plugin, import, jsx-a11y, react, react-hooks
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
@@ -33,7 +33,6 @@ module.exports = {
   rules: {
     'import/order': ['error', { alphabetize: { order: 'asc' } }],
     'import/prefer-default-export': 'off',
-    'no-nested-ternary': 'off',
     'no-param-reassign': [
       'error',
       // Immer - https://github.com/immerjs/immer/issues/189#issuecomment-703083451

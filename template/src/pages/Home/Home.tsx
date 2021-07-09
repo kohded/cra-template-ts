@@ -8,7 +8,7 @@ export const Home = (): JSX.Element => {
 
   return (
     <Page description={homeText} keywords={homeText} title={homeText}>
-      <p>Positive Counter: {counter.count}</p>
+      <p>Count: {counter.count}</p>
       <button onClick={handleDecrementClick} type="button">
         -
       </button>

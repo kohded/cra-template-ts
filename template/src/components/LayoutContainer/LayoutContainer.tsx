@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import classes from './LayoutContainer.module.scss';
 
-interface LayoutContainerProps {
+export interface LayoutContainerProps {
   className?: string | undefined;
   isFluid?: boolean;
   role?: string;
@@ -19,5 +19,3 @@ export const LayoutContainer = ({
     <div className={isFluid ? classes.fluid : undefined}>{children}</div>
   </Tag>
 );
-
-export type { LayoutContainerProps };
