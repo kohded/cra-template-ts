@@ -1,3 +1,0 @@
-interface ActionEvent {
-  type: string;
-}

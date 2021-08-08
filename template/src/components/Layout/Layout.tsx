@@ -8,7 +8,7 @@ const Header = lazyComponent('Header', import('../Header/Header'));
 
 const Container = ({ children }: PropsWithChildren<Record<string, unknown>>): JSX.Element => (
   <ErrorBoundary>
-    <Suspense fallback={<Loading />}>{children} </Suspense>
+    <Suspense fallback={<Loading />}>{children}</Suspense>
   </ErrorBoundary>
 );
 

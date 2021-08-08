@@ -20,14 +20,14 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:compat/recommended',
     'plugin:eslint-comments/recommended',
-    // Set up eslint-config-prettier: 'extends': ['prettier'].
-    // Set up eslint-plugin-prettier: 'plugins': ['prettier'], rules: { 'prettier/prettier: 'error', 'arrow-body-style': 'off', 'prefer-arrow-callback' : 'off' }
+    // https://github.com/prettier/eslint-plugin-prettier#user-content-recommended-configuration
+    // Sets up: eslint-config-prettier, eslint-plugin-prettier
     'plugin:prettier/recommended',
   ],
   ignorePatterns: ['build', 'coverage', 'serviceWorkerRegistration.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json'],
+    project: './tsconfig.json',
   },
   plugins: ['@typescript-eslint'],
   rules: {

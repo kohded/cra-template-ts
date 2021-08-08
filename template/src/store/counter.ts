@@ -2,8 +2,7 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ofType } from 'redux-observable';
 import { ignoreElements, Observable, tap } from 'rxjs';
-import { delay } from 'rxjs/operators';
-import { actionEvent, actionTypes } from './helpers';
+import { ActionEvent, actionEvent } from './helpers';
 
 // Types
 interface Counter {
@@ -16,11 +15,16 @@ interface UseCounter {
   handleIncrementClick: () => void;
 }
 
+// Action Types
+export const counterActionTypes = {
+  decremented: 'counter/decremented',
+  incremented: 'counter/incremented',
+};
+
 // Epic
 export const counterEpic = (action$: Observable<AnyAction>): Observable<AnyAction> =>
   action$.pipe(
-    ofType(actionTypes.incremented),
-    delay(500),
+    ofType(counterActionTypes.decremented, counterActionTypes.incremented),
     // eslint-disable-next-line no-console
     tap((action: ActionEvent) => console.log(`Epic: ${action.type}`)),
     ignoreElements()
@@ -33,9 +37,9 @@ export const counterReducer = (
   action: ActionEvent & Counter
 ): Counter => {
   switch (action.type) {
-    case actionTypes.decremented:
+    case counterActionTypes.decremented:
       return { count: state.count - 1 };
-    case actionTypes.incremented:
+    case counterActionTypes.incremented:
       return { count: state.count + 1 };
     default:
       return counterInitialState;
@@ -49,7 +53,7 @@ export const useCounter = (): UseCounter => {
 
   return {
     counter,
-    handleDecrementClick: () => dispatch(actionEvent(actionTypes.decremented)),
-    handleIncrementClick: () => dispatch(actionEvent(actionTypes.incremented)),
+    handleDecrementClick: () => dispatch(actionEvent(counterActionTypes.decremented)),
+    handleIncrementClick: () => dispatch(actionEvent(counterActionTypes.incremented)),
   };
 };
