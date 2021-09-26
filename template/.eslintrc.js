@@ -5,6 +5,7 @@ module.exports = {
     commonjs: true,
     es2021: true,
     jest: true,
+    mongo: true,
     node: true,
     serviceworker: true,
     worker: true,
@@ -12,8 +13,10 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
+    // Sets up: import, jsx-a11y, react, react-hooks
+    'airbnb',
     // https://github.com/iamturns/eslint-config-airbnb-typescript#user-content-i-wish-this-config-would-support-
-    // Sets up: @typescript-eslint/eslint-plugin, import, jsx-a11y, react, react-hooks
+    // Sets up: plugins: ['@typescript-eslint'], parser: '@typescript-eslint/parser'
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
@@ -25,11 +28,9 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   ignorePatterns: ['build', 'coverage', 'serviceWorkerRegistration.ts'],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: 'tsconfig.json',
   },
-  plugins: ['@typescript-eslint'],
   rules: {
     'import/order': ['error', { alphabetize: { order: 'asc' } }],
     'import/prefer-default-export': 'off',
@@ -39,5 +40,6 @@ module.exports = {
       { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
     ],
     'no-underscore-dangle': ['error', { allow: ['__WB_MANIFEST'] }],
+    'react/require-default-props': ['error', { ignoreFunctionalComponents: true }],
   },
 };

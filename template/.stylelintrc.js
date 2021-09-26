@@ -10,6 +10,7 @@ module.exports = {
   ignoreFiles: ['build/**'],
   plugins: [
     'stylelint-high-performance-animation',
+    // https://github.com/AndyOGo/stylelint-declaration-strict-value#user-content-usage
     'stylelint-declaration-strict-value',
     'stylelint-no-unsupported-browser-features',
   ],
@@ -23,7 +24,7 @@ module.exports = {
         severity: 'warning',
       },
     ],
-    'scale-unlimited/declaration-strict-value': [['color']],
+    'scale-unlimited/declaration-strict-value': [],
     'selector-max-id': 1,
     'value-keyword-case': [
       'lower',
