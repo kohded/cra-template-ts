@@ -82,7 +82,7 @@
   "engines": {
     "node": ">=14",
     "npm": ">=6",
-    "yarn": "Please use npm >=6"
+    "yarn": "Please use npm >=6, npx create-react-app my-app --template ts --use-npm"
   },
   "files": [
     "template",
@@ -122,5 +122,5 @@
     "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" -c \"./template/.eslintrc.js\"",
     "lint:stylelint": "stylelint \"**/*.{css,less,scss}\" --config \"./template/.stylelintrc.js\""
   },
-  "version": "0.2.2"
+  "version": "0.2.3"
 }
