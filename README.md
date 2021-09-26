@@ -10,9 +10,6 @@ npx create-react-app my-app --template ts --use-npm
 
 # npm local
 npx create-react-app my-app --template file:./cra-template-ts --use-npm
-
-# yarn
-yarn create react-app my-app --template ts
 ```
 
 ## Learn more

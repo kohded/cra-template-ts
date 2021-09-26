@@ -26,18 +26,13 @@
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-compat": "^3.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.26.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.2",
     "immer": "^9.0.6",
     "lint-staged": "^11.1.2",
@@ -85,7 +80,9 @@
   },
   "description": "A progressive web app template for Create React App and TypeScript.",
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "npm": ">=6",
+    "yarn": "Please use npm >=6"
   },
   "files": [
     "template",
@@ -103,7 +100,6 @@
     "redux",
     "redux-observable",
     "redux-offline",
-    "reduxjs",
     "rxjs",
     "sass",
     "scss",
@@ -126,5 +122,5 @@
     "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" -c \"./template/.eslintrc.js\"",
     "lint:stylelint": "stylelint \"**/*.{css,less,scss}\" --config \"./template/.stylelintrc.js\""
   },
-  "version": "0.2.1"
+  "version": "0.2.2"
 }
