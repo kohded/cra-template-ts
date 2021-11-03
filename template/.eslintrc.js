@@ -30,6 +30,8 @@ module.exports = {
   ignorePatterns: ['build', 'coverage', 'serviceWorkerRegistration.ts'],
   parserOptions: {
     project: 'tsconfig.json',
+    // Fixes Parsing error: Cannot read tsconfig for nested projects, https://stackoverflow.com/a/64940811
+    tsconfigRootDir: __dirname,
   },
   rules: {
     'import/order': ['error', { alphabetize: { order: 'asc' } }],
