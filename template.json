@@ -78,9 +78,9 @@
     },
     "description": "",
     "engines": {
-      "node": ">=14",
-      "npm": ">=6",
-      "yarn": "Please use npm >=6"
+      "node": ">= 14",
+      "npm": ">= 6",
+      "yarn": "Please use npm >= 6"
     },
     "eslintConfig": {},
     "license": "MIT",

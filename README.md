@@ -1,5 +1,7 @@
 # cra-template-ts
 
+:warning: Please use Node >= 14 and npm >= 6 with this template.
+
 An progressive web app template for [Create React App](https://github.com/facebook/create-react-app), using TypeScript.
 
 To use this template add `--template ts` when creating a new app:

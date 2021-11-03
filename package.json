@@ -80,9 +80,9 @@
   },
   "description": "A progressive web app template for Create React App and TypeScript.",
   "engines": {
-    "node": ">=14",
-    "npm": ">=6",
-    "yarn": "Please use npm >=6, npx create-react-app my-app --template ts --use-npm"
+    "node": ">= 14",
+    "npm": ">= 6",
+    "yarn": "Please use npm >= 6, npx create-react-app my-app --template ts --use-npm"
   },
   "files": [
     "template",
