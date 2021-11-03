@@ -2,10 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Setup HTTPS
+## Table of Contents
+
+1. [Setup HTTPS](#setup-https)
+2. [Generate Icons and Splash Screens](#generate-icons-and-splash-screens)
+3. [Available Scripts](#available-scripts)
+4. [Troubleshooting](#troubleshooting)
+5. [Learn More](#learn-more)
+
+## <a name="setup-https"></a>Setup HTTPS
 
 1. Install [mkcert](https://github.com/FiloSottile/mkcert#installation).
-
 2. Install local CA to available trust stores with the following command.
 
 ```shell script
@@ -19,10 +26,9 @@ mkcert -install
 HTTPS=true
 ```
 
-4.  Optional: Add hosts to OS hosts file and setup:ssl script for additional https domains, defaults only to localhost.
-
-- Windows: C:\Windows\System32\drivers\etc\hosts
-- Mac: /etc/hosts
+4. Optional: Add hosts to OS hosts file and setup:ssl script for additional https domains, defaults only to localhost.
+   1. Windows: C:\Windows\System32\drivers\etc\hosts
+   2. Mac: /etc/hosts
 
 ```shell script
 # hosts
@@ -39,18 +45,25 @@ npm run setup
 ```
 
 6. When viewing the application in the browser and shows a warning about untrusted certificates, will need to [Trust the local CA](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8#trust-the-local-ca).
-   - Warnings: Chrome: "Your connection is not private", Firefox: "Warning: Potential Security Risk Ahead"
+   1. Warnings
+      1. Chrome: "Your connection is not private"
+      2. Firefox: "Warning: Potential Security Risk Ahead"
 
-## Generate icons and splash screens
+## <a name="generate-icons-and-splash-screens"></a>Generate Icons and Splash Screens
 
-- Replace ./src/assets/images/icons/logo.svg with application logo.svg.
-- Run icons script in [package.json](package.json) to generate icons and splash screens. This script uses [pwa-asset-generator](https://github.com/onderceylan/pwa-asset-generator).
+1. Replace ./src/assets/images/icons/logo.svg with application logo.svg.
+2. Run icons script in [package.json](package.json) to generate icons and splash screens. This script uses [pwa-asset-generator](https://github.com/onderceylan/pwa-asset-generator).
 
 ```shell script
 npm run icons
 ```
 
-## Available Scripts
+## <a name="troubleshooting"></a>Troubleshooting
+
+- npm audit vulnerabilities
+  - [Help, npm audit says I have a vulnerability in react-scripts! #11174](https://github.com/facebook/create-react-app/issues/11174)
+
+## <a name="available-scripts"></a>Available Scripts
 
 In the project directory, you can run:
 
@@ -104,6 +117,10 @@ Runs these commands before build script.
 
 ### `npm run serve`
 
+Runs serve as http in the build folder.
+
+### `npm run serve:https`
+
 Runs serve as https in the build folder.
 
 ### `npm run setup`
@@ -141,9 +158,9 @@ Launches the test runner for test coverage.
 
 ### `npm test:debug`
 
-Launches the test runner for debugging tests.
+Launches the test runner in debug mode.
 
-## Learn More
+## <a name="learn-more"></a>Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
