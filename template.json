@@ -103,8 +103,7 @@
       "setup:ssl": "mkdirp \"src/config/ssl\" && mkcert -cert-file \"src/config/ssl/cert.pem\" -key-file \"src/config/ssl/key.pem\" localhost",
       "test:ci": "cross-env CI=true npm test --env=jsdom",
       "test:coverage": "cross-env CI=true npm test -- --coverage",
-      "test:debug": "react-scripts --inspect-brk test --runInBand",
-      "test:watch": "npm test --watch"
+      "test:debug": "react-scripts --inspect-brk test --runInBand"
     }
   }
 }
