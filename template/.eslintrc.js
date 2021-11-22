@@ -34,12 +34,13 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
+    'import/no-cycle': ['error', { maxDepth: 1 }],
     'import/order': ['error', { alphabetize: { order: 'asc' } }],
     'import/prefer-default-export': 'off',
     'no-param-reassign': [
       'error',
       // Immer - https://github.com/immerjs/immer/issues/189#issuecomment-703083451
-      { props: true, ignorePropertyModificationsForRegex: ['^draft'] },
+      { ignorePropertyModificationsForRegex: ['^draft'] },
     ],
     'no-underscore-dangle': ['error', { allow: ['__WB_MANIFEST'] }],
     'react/require-default-props': ['error', { ignoreFunctionalComponents: true }],

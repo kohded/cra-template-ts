@@ -1,28 +1,32 @@
-import { offline } from '@redux-offline/redux-offline';
-import offlineConfig from '@redux-offline/redux-offline/lib/defaults';
-import { Action, applyMiddleware, combineReducers, createStore, Store, StoreEnhancer } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { combineEpics, createEpicMiddleware, Epic, EpicMiddleware } from 'redux-observable';
-import { counterEpic, counterReducer } from './counter';
+import { Action, configureStore } from '@reduxjs/toolkit';
+import {
+  combineEpics,
+  createEpicMiddleware,
+  EpicMiddleware,
+  StateObservable,
+} from 'redux-observable';
+import { catchError, Observable } from 'rxjs';
+import { counterEpic, counterSlice } from './counter';
 
-const rootReducer = combineReducers({ counter: counterReducer });
-const rootEpic = combineEpics(counterEpic);
+// https://redux-observable.js.org/docs/basics/SettingUpTheMiddleware.html#adding-global-error-handler
+const rootEpic = (
+  action$: Observable<Action>,
+  store$: StateObservable<void>,
+  dependencies: unknown
+) =>
+  combineEpics(counterEpic)(action$, store$, dependencies).pipe(
+    catchError((error, source) => {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return source;
+    })
+  );
 const epicMiddleware: EpicMiddleware<Action> = createEpicMiddleware();
-const middleware = [epicMiddleware];
-const composeEnhancers = composeWithDevTools({
-  trace: true,
+
+export const store = configureStore({
+  devTools: process.env.NODE_ENV === 'development' ? { trace: true } : false,
+  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), epicMiddleware],
+  reducer: { counter: counterSlice.reducer },
 });
-const store = createStore(
-  rootReducer,
-  composeEnhancers(
-    applyMiddleware(...middleware),
-    offline(offlineConfig) as StoreEnhancer<
-      Store<{ [key: string]: unknown }>,
-      Record<string, unknown>
-    >
-  )
-);
 
-epicMiddleware.run(rootEpic as Epic<Action, Action, void, unknown>);
-
-export { store };
+epicMiddleware.run(rootEpic);
