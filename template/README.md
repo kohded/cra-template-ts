@@ -62,14 +62,6 @@ npm run icons
 
 - Npm audit vulnerabilities.
   - [Help, npm audit says I have a vulnerability in react-scripts! #11174](https://github.com/facebook/create-react-app/issues/11174)
-- Waiting until current issues are resolved.
-  - Updating eslint to v8 and dependent packages.
-    - [eslint-config-react-app Support ESLint 8.x #11374](https://github.com/facebook/create-react-app/issues/11374)
-    - [eslint-config-react-app is not compatible with ESLint 8 #11549](https://github.com/facebook/create-react-app/issues/11549#issuecomment-962237549)
-  - Updating stylelint to v14 and dependent packages.
-    - [Update dependency tree for stylelint 14.0.1 #65](https://github.com/YozhikM/stylelint-a11y/issues/65)
-  - Updating lint-staged to v12.
-    - [ERR_UNSUPPORTED_ESM_URL_SCHEME on Windows #1054](https://github.com/okonet/lint-staged/issues/1054)
 
 ## <a name="available-scripts"></a>Available Scripts
 

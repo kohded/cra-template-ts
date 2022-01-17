@@ -13,10 +13,11 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
-    // Sets up: import, jsx-a11y, react, react-hooks
+    // peerDependencies: eslint, import, jsx-a11y, react, react-hooks
     'airbnb',
     // https://github.com/iamturns/eslint-config-airbnb-typescript#user-content-i-wish-this-config-would-support-
-    // Sets up: plugins: ['@typescript-eslint'], parser: '@typescript-eslint/parser'
+    // peerDependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
+    // Sets up: { parser: '@typescript-eslint/parser', plugins: ['@typescript-eslint'] }
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
@@ -43,6 +44,7 @@ module.exports = {
       { ignorePropertyModificationsForRegex: ['^draft'] },
     ],
     'no-underscore-dangle': ['error', { allow: ['__WB_MANIFEST'] }],
+    'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
     'react/require-default-props': ['error', { ignoreFunctionalComponents: true }],
   },
 };

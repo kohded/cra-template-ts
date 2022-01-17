@@ -3,7 +3,8 @@ module.exports = {
     'stylelint-config-standard',
     // Installs: stylelint-order, stylelint-scss
     'stylelint-config-sass-guidelines',
-    'stylelint-a11y/recommended',
+    // Reinstall after this is merged: https://github.com/YozhikM/stylelint-a11y/pull/66
+    // 'stylelint-a11y/recommended',
     // https://github.com/prettier/stylelint-prettier#user-content-recommended-configuration
     'stylelint-prettier/recommended',
   ],
