@@ -125,5 +125,5 @@
     "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" -c \"./template/.eslintrc.js\"",
     "lint:stylelint": "stylelint \"**/*.{css,less,scss}\" --config \"./template/.stylelintrc.js\""
   },
-  "version": "0.3.3"
+  "version": "0.3.4"
 }

@@ -60,12 +60,17 @@ npm run icons
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
+- Unmet peer dependency for Yarn.
+
+  - This template isn't tested for Yarn. The main issue is Yarn doesn't install peerDependencies by default.
+
 - Npm audit vulnerabilities.
 
   - [Help, npm audit says I have a vulnerability in react-scripts! #11174](https://github.com/facebook/create-react-app/issues/11174)
 
 - node-fetch
-  - There's a vulnerability with node-fetch which is a dependency of pwa-asset-generator. I don't think this will affect the application since pwa-asset-generator is used as a build tool. Until fixed, there's an overrides for node-fetch in package.json.
+
+  - There's a vulnerability with node-fetch which is a dependency of pwa-asset-generator. I don't think this will affect the application since pwa-asset-generator is used as a build tool. Waiting on fix from maintainer.
 
 ## <a name="available-scripts"></a>Available Scripts
 
